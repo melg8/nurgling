@@ -1672,10 +1672,12 @@ public class NUtils {
             Gob gob
     )
             throws InterruptedException {
+        Coord2d player_coord_before_lift = gameUI.getMap().player().rc;
         gameUI.ui.rcvr.rcvmsg(gameUI.getMenuGridId(), "act", "carry");
         gameUI.map.wdgmsg("click", Coord.z, gob.rc.floor(posres), 1, 0, 0, (int) gob.id, gob.rc.floor(posres),
                 0, -1);
-        waitEvent(()->NUtils.isPose(gameUI.map.player(),new NAlias("banzai")),200);
+        waitEvent(() -> NUtils.isPose(gameUI.map.player(), new NAlias("banzai")), 200);
+        gameUI.map.wdgmsg("click", Coord.z, player_coord_before_lift.floor(posres), 1, 0);
         return false;
     }
 
