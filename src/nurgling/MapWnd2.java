@@ -2,6 +2,8 @@ package nurgling;
 
 
 import haven.*;
+import haven.MiniMap.MapLocator;
+import nurgling.minimap.NPMarker;
 
 import java.awt.*;
 import java.util.HashMap;
@@ -36,6 +38,13 @@ public class MapWnd2 extends MapWnd {
 	super.resize(sz);
     }
 
+	public void addMarkerAtPlayer(String name, Color color) {
+		MapLocator player_locator = new MapLocator(this.mv);
+		Coord at = player_locator.locate(file).tc;
+		MapFile.Marker nm = new NPMarker(view.sessloc.seg.id, at, name, color);
+		file.add(nm);
+		domark = false;
+	}
 
     
     public void addMarker(Gob gob) {

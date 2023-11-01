@@ -70,6 +70,8 @@ public class NBotsInfo extends NDraggableWidget implements KeyBinding.Bindable {
                     "bots/icons/butcher") );
             layouts.get ( 0 ).add ( new NButton ( "Truffle", new Truffle( gui ),
                     "bots/icons/truffle") );
+            layouts.get(0).add(new NButton("Water Q Mapper", new WaterQMapperBot(gui), "bots/icons/nomad"));
+
 //            layouts.get ( 0 ).add ( new NButton ( "ButcherSupport", new nurgler.bots.resources.ButcherSupport ( gui ),
 //                    Special.getPath () + "/icons/butcherSupport.png" ) );
 
